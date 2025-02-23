@@ -57,3 +57,16 @@ company.addEmployee(emp1);
 company.addEmployee(mgr1);
 
 company.listEmployees();
+// Task 4: Implementing a Payroll System
+class Manager extends Employee {
+    calculateAnnualSalary() {
+        return super.calculateAnnualSalary() + this.calculateBonus();
+    }
+}
+
+class Company {
+    calculateTotalPayroll() {
+        return this.employees.reduce((total, emp) => total + emp.calculateAnnualSalary(), 0);
+    }
+}
+console.log(company.calculateTotalPayroll());
